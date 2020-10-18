@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pku.dao.IActorDao">
+	<select id="getActorById" parameterType="string" resultType="Film">
+		select * from actor where actor_id=#{_parameter}
+	</select>
+	
+	<select id="getActorUnLucene" resultType="Actor">
+		select * from actor where islucene=0 and actor_name!=''
+	</select>
+	
+	<update id="updateActorLucene" parameterType="string">
+		update actor set islucene=1 where actor_id=#{_parameter}
+	</update>
+</mapper>
